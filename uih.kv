@@ -1,0 +1,1318 @@
+MDScreen:
+    screen_manager:screen_manager
+    MDTopAppBar:
+        pos_hint: {"top": 1}
+        title:"Railway"
+    MDScreenManager:
+        id:screen_manager
+        MDScreen:
+            name:"main"
+            Image:
+                id:images
+                source:"no.jpg"
+                pos: self.pos
+                size_hint:1,.894
+                size: root.size
+                allow_stretch:True
+                keep_ratio:False
+
+            MDRectangleFlatIconButton:
+                md_bg_color:"orange"
+                icon:"ticket-confirmation"
+                icon_color:"black"
+                text_color:"black"
+                text:"TICKET BOOKING"
+                size_hint_x:.322
+                pos_hint:{'center_x':.1666,'center_y':.85}
+                on_release:
+                    root.screen_manager.current = "booking"
+                    app.booking_details()
+
+            MDRectangleFlatIconButton:
+                md_bg_color:"orange"
+                icon:"ticket-outline"
+                icon_color:"black"
+                text_color:"black"
+                text:"CANCEL TICKET"
+                size_hint_x:.322
+                pos_hint:{'center_x':.4999,'center_y':.85}
+
+            MDRectangleFlatIconButton:
+                md_bg_color:"orange"
+                icon:"eye"
+                icon_color:"black"
+                text_color:"black"
+                text:"SHOW TICKET"
+                size_hint_x:.322
+                pos_hint:{'center_x':.8322,'center_y':.85}
+                on_release:
+                    root.screen_manager.current ="showticket"
+                    app.showticket()
+            MDRectangleFlatIconButton:
+                md_bg_color:"orange"
+                icon:"account-cash"
+                icon_color:"black"
+                text_color:"black"
+                text:"TRANSACTION"
+                size_hint_x:.322
+                pos_hint:{'center_x':.3333,'center_y':.77}
+            MDRectangleFlatIconButton:
+                md_bg_color:"orange"
+                icon:"clipboard-text-clock"
+                icon_color:"black"
+                text_color:"black"
+                text:"TICKET HISTORY"
+                size_hint_x:.322
+                pos_hint:{'center_x':.6666,'center_y':.77}
+
+            MDCard:
+                orientation: "vertical"
+                padding: 20
+                spacing:30
+                size_hint: .3,.4
+                pos_hint: {"center_x": .5, "center_y": .45}
+                elevation: 6
+                shadow_offset: 0, -2
+
+                MDRectangleFlatIconButton:
+                    id:From
+                    pos_hint:{"center_x":.5,"center_y":2}
+                    size_hint_x:.75
+                    text:"FROM"
+                    icon:"train"
+                    on_release:
+                        root.screen_manager.current = "chutiya"
+                        app.from_pressed()
+
+
+
+                MDRectangleFlatIconButton:
+                    id:To
+                    pos_hint:{"center_x":.5,"center_y":2}
+                    size_hint_x:.75
+                    text:"TO"
+                    icon:"train"
+                    on_release:
+                        root.screen_manager.current="MF"
+                        app.to_pressed()
+                MDRectangleFlatIconButton:
+                    pos_hint: {'center_x': .5, 'center_y': .5}
+                    icon:"calendar-edit-outline"
+                    text:"Date"
+                    on_release: app.show_date_picker()
+
+
+                MDRectangleFlatButton:
+                    text:"search train"
+                    pos_hint:{"center_x":.5,"center_y":2}
+                    size_hint_x:.75
+                    adaptive_width:True
+                    on_release:
+                        root.screen_manager.current = "gaandu"
+                        app.search_train()
+
+        MDScreen:
+            name:"chutiya"
+            MDBoxLayout:
+                orientation:"vertical"
+                MDTopAppBar:
+                    title:"Settings"
+                MDBoxLayout:
+                    size_hint:(1,.1)
+                    MDIconButton:
+                        icon:"keyboard-backspace"
+                        on_release:
+                            root.screen_manager.current='main'
+                ScrollView:
+                    size:self.size
+                    GridLayout:
+                        id:layout_content
+                        size_hint_y:None
+                        height:self.minimum_height
+                        width:self.minimum_width
+                        cols:1
+                        row_default_height:"60dp"
+                        row_force_default:True
+                        MDRectangleFlatButton:
+                            id:ab
+                            text:""
+                            size_hint_x:1
+                            halign: "left"
+                            size_hint_y:"60dp"
+                            on_release:
+                                app.release1()
+                                root.screen_manager.current='main'
+                        MDRectangleFlatButton:
+                            id:abc
+                            text:""
+                            size_hint_x:1
+                            halign: "left"
+                            size_hint_y:"60dp"
+                            on_release:
+                                app.release2()
+                                root.screen_manager.current='main'
+                        MDRectangleFlatButton:
+                            id:abcd
+                            text:""
+                            size_hint_x:1
+                            halign: "left"
+                            size_hint_y:"60dp"
+                            on_release:
+                                app.release3()
+                                root.screen_manager.current='main'
+                        MDRectangleFlatButton:
+                            id:abcde
+                            text:""
+                            size_hint_x:1
+                            halign: "left"
+                            size_hint_y:"60dp"
+                            on_release:
+                                app.release4()
+                                root.screen_manager.current='main'
+                        MDRectangleFlatButton:
+                            id:anan
+                            text:""
+                            size_hint_x:1
+                            halign: "left"
+                            size_hint_y:"60dp"
+                            on_release:
+                                app.release5()
+                                root.screen_manager.current='main'
+                        MDRectangleFlatButton:
+                            id:anan
+                            text:""
+                            size_hint_x:1
+                            halign: "left"
+                            size_hint_y:"60dp"
+                        MDRectangleFlatButton:
+                            id:anan
+                            text:""
+                            size_hint_x:1
+                            halign: "left"
+                            size_hint_y:"60dp"
+        MDScreen:
+            name:"gaandu"
+            MDBoxLayout:
+                orientation:"vertical"
+                md_bg_color:204/255,255/255,204/255,1
+                MDTopAppBar:
+                    title:"Settings"
+                MDBoxLayout:
+                    size_hint:(1,.1)
+                    MDIconButton:
+                        icon:"keyboard-backspace"
+                        on_release:
+                            root.screen_manager.current='main'
+
+                ScrollView:
+                    size:self.size
+                    GridLayout:
+                        id:layout_content
+                        size_hint_y:None
+                        height:self.minimum_height
+                        width:self.minimum_width
+                        cols:1
+                        spacing:20
+                        padding:40
+                        row_default_height:"200dp"
+                        col_default_width:"700dp"
+                        row_force_default:True
+                        column_force_default:False
+                        BoxLayout:
+                            orientation:"vertical"
+                            canvas:
+                                Color:
+                                    rgba: 204/255,229/255,1,1
+                                Rectangle:
+                                    pos: self.pos
+                                    size: self.size
+                            BoxLayout:
+                                padding:10
+                                Label:
+                                    id:num1
+                                    text:""
+                                    font_size:dp(30)
+                                    theme_text_color: "Custom"
+                                    size_hint_x:None
+                                    size_hint_y:.2
+                                    pos_hint:{"center_x":.1,"center_y":.67}
+                                    color:1,1,1,1
+
+                                Label:
+                                    id:tname1
+                                    text:""
+                                    font_size:dp(44)
+                                    size_hint_x:None
+                                    size_hint_y:.28
+                                    halign: "left"
+                                    pos_hint:{"center_x":.1,"center_y":.7}
+                                Label:
+                                    id:durlab1
+                                    text:""
+                                MDRaisedButton:
+                                    id:submitt1
+                                    text:"SUBMIT"
+                                    size_hint_y:.5
+                                    pos_hint:{"center_x":.6,"center_y":.67}
+                                    disabled:True
+                                    on_release:app.show_alert_dialog()
+
+
+                            BoxLayout:
+                                orientation:'horizontal'
+                                spacing:80
+                                padding:20
+                                MDRectangleFlatButton:
+                                    id:c1
+                                    text:""
+                                    size_hint_x:.1
+                                    size_hint_y:.8
+                                    pos_hint:{"x":.4,"center_y":.7}
+                                    line_color:204/255,229/255,1,1
+                                    disabled:True
+                                    on_release:app.c1return()
+                                MDRectangleFlatButton:
+                                    id:c2
+                                    text:""
+                                    size_hint_y:.8
+                                    size_hint_x:.1
+                                    pos_hint:{"x":.4,"center_y":.7}
+                                    line_color:204/255,229/255,1,1
+                                    disabled:True
+                                    on_release:app.c2return()
+
+                                MDRectangleFlatButton:
+                                    id:c3
+                                    text:""
+                                    size_hint_x:.1
+                                    size_hint_y:.8
+                                    pos_hint:{"x":.4,"center_y":.7}
+                                    line_color:204/255,229/255,1,1
+                                    disabled:True
+                                    on_release:app.c3return()
+
+                                MDRectangleFlatButton:
+                                    id:c4
+                                    text:""
+                                    size_hint_x:.1
+                                    size_hint_y:.8
+                                    pos_hint:{"x":.4,"center_y":.7}
+                                    line_color:204/255,229/255,1,1
+                                    disabled:True
+                                    on_release:app.c4return()
+
+                                MDRectangleFlatButton:
+                                    id:c5
+                                    text:""
+                                    size_hint_x:.1
+                                    size_hint_y:.8
+                                    pos_hint:{"x":.4,"center_y":.7}
+                                    line_color:204/255,229/255,1,1
+                                    disabled:True
+                                    on_release:app.c5return()
+
+
+                        BoxLayout:
+                            orientation:"vertical"
+                            canvas:
+                                Color:
+                                    rgba: 204/255,229/255,1,1
+                                Rectangle:
+                                    pos: self.pos
+                                    size: self.size
+                            BoxLayout:
+                                padding:10
+                                Label:
+                                    id:num2
+                                    text:""
+                                    font_size:dp(30)
+                                    theme_text_color: "Custom"
+                                    size_hint_x:None
+                                    size_hint_y:.2
+                                    pos_hint:{"center_x":.1,"center_y":.67}
+                                    color:1,1,1,1
+
+                                Label:
+                                    id:tname2
+                                    text:""
+                                    font_size:dp(44)
+                                    size_hint_x:None
+                                    size_hint_y:.28
+                                    halign: "left"
+                                    pos_hint:{"center_x":.1,"center_y":.7}
+                                Label:
+                                    id:durlab2
+                                    text:""
+                                MDRaisedButton:
+                                    id:submitt2
+                                    text:"SUBMIT"
+                                    size_hint_y:.5
+                                    pos_hint:{"center_x":.6,"center_y":.67}
+                                    disabled:True
+                                    on_release:app.show_alert_dialog()
+
+                            BoxLayout:
+                                orientation:'horizontal'
+                                spacing:80
+                                padding:20
+                                MDRectangleFlatButton:
+                                    id:c12
+                                    text:""
+                                    size_hint_x:.1
+                                    size_hint_y:.8
+                                    pos_hint:{"x":.4,"center_y":.7}
+                                    line_color:204/255,229/255,1,1
+                                    disabled:True
+                                    on_release:app.c12return()
+                                MDRectangleFlatButton:
+                                    id:c22
+                                    text:""
+                                    size_hint_y:.8
+                                    size_hint_x:.1
+                                    pos_hint:{"x":.4,"center_y":.7}
+                                    line_color:204/255,229/255,1,1
+                                    disabled:True
+                                    on_release:app.c22return()
+                                MDRectangleFlatButton:
+                                    id:c32
+                                    text:""
+                                    size_hint_x:.1
+                                    size_hint_y:.8
+                                    pos_hint:{"x":.4,"center_y":.7}
+                                    line_color:204/255,229/255,1,1
+                                    disabled:True
+                                    on_release:app.c32return()
+                                MDRectangleFlatButton:
+                                    id:c42
+                                    text:""
+                                    size_hint_x:.1
+                                    size_hint_y:.8
+                                    pos_hint:{"x":.4,"center_y":.7}
+                                    line_color:204/255,229/255,1,1
+                                    disabled:True
+                                    on_release:app.c42return()
+                                MDRectangleFlatButton:
+                                    id:c52
+                                    text:""
+                                    size_hint_x:.1
+                                    size_hint_y:.8
+                                    pos_hint:{"x":.4,"center_y":.7}
+                                    line_color:204/255,229/255,1,1
+                                    disabled:True
+                                    on_release:app.c52return()
+                        BoxLayout:
+                            orientation:"vertical"
+                            canvas:
+                                Color:
+                                    rgba: 204/255,229/255,1,1
+                                Rectangle:
+                                    pos: self.pos
+                                    size: self.size
+                            BoxLayout:
+
+                                Label:
+                                    id:num3
+                                    text:""
+                                    font_size:dp(30)
+                                    theme_text_color: "Custom"
+                                    size_hint_x:None
+                                    size_hint_y:.2
+                                    pos_hint:{"center_x":.1,"center_y":.67}
+                                    color:1,1,1,1
+
+                                Label:
+                                    id:tname3
+                                    text:""
+                                    font_size:dp(44)
+                                    size_hint_x:None
+                                    size_hint_y:.28
+                                    halign: "left"
+                                    pos_hint:{"center_x":.1,"center_y":.7}
+                                Label:
+                                    id:durlab3
+                                    text:""
+                                MDRaisedButton:
+                                    id:submitt3
+                                    text:"SUBMIT"
+                                    size_hint_y:.5
+                                    pos_hint:{"center_x":.6,"center_y":.67}
+                                    disabled:True
+                                    on_release:app.show_alert_dialog()
+
+                            BoxLayout:
+                                orientation:'horizontal'
+                                spacing:80
+                                padding:20
+                                MDRectangleFlatButton:
+                                    id:c13
+                                    text:""
+                                    size_hint_x:.1
+                                    size_hint_y:.8
+                                    pos_hint:{"x":.4,"center_y":.7}
+                                    line_color:204/255,229/255,1,1
+                                    disabled:True
+                                    on_release:app.c13return()
+
+                                MDRectangleFlatButton:
+                                    id:c23
+                                    text:""
+                                    size_hint_y:.8
+                                    size_hint_x:.1
+                                    pos_hint:{"x":.4,"center_y":.7}
+                                    line_color:204/255,229/255,1,1
+                                    disabled:True
+                                    on_release:app.c23return()
+
+                                MDRectangleFlatButton:
+                                    id:c33
+                                    text:""
+                                    size_hint_x:.1
+                                    size_hint_y:.8
+                                    pos_hint:{"x":.4,"center_y":.7}
+                                    line_color:204/255,229/255,1,1
+                                    disabled:True
+                                    on_release:app.c33return()
+
+                                MDRectangleFlatButton:
+                                    id:c43
+                                    text:""
+                                    size_hint_x:.1
+                                    size_hint_y:.8
+                                    pos_hint:{"x":.4,"center_y":.7}
+                                    line_color:204/255,229/255,1,1
+                                    disabled:True
+                                    on_release:app.c43return()
+
+                                MDRectangleFlatButton:
+                                    id:c53
+                                    text:""
+                                    size_hint_x:.1
+                                    size_hint_y:.8
+                                    pos_hint:{"x":.4,"center_y":.7}
+                                    line_color:204/255,229/255,1,1
+                                    disabled:True
+                                    on_release:app.c53return()
+
+
+                        BoxLayout:
+                            orientation:"vertical"
+                            canvas:
+                                Color:
+                                    rgba: 204/255,229/255,1,1
+                                Rectangle:
+                                    pos: self.pos
+                                    size: self.size
+                            BoxLayout:
+
+                                Label:
+                                    id:num4
+                                    text:""
+                                    font_size:dp(30)
+                                    theme_text_color: "Custom"
+                                    size_hint_x:None
+                                    size_hint_y:.2
+                                    pos_hint:{"center_x":.1,"center_y":.67}
+                                    color:1,1,1,1
+
+                                Label:
+                                    id:tname4
+                                    text:""
+                                    font_size:dp(44)
+                                    size_hint_x:None
+                                    size_hint_y:.28
+                                    halign: "left"
+                                    pos_hint:{"center_x":.1,"center_y":.7}
+                                Label:
+                                    id:durlab4
+                                    text:""
+                                MDRaisedButton:
+                                    id:submitt4
+                                    text:"SUBMIT"
+                                    size_hint_y:.5
+                                    pos_hint:{"center_x":.6,"center_y":.67}
+                                    disabled:True
+                                    on_release:app.show_alert_dialog()
+
+                            BoxLayout:
+                                orientation:'horizontal'
+                                spacing:80
+                                padding:20
+                                MDRectangleFlatButton:
+                                    id:c14
+                                    text:""
+                                    size_hint_x:.1
+                                    size_hint_y:.8
+                                    pos_hint:{"x":.4,"center_y":.7}
+                                    line_color:204/255,229/255,1,1
+                                    disabled:True
+                                    on_release:app.c14return()
+
+                                MDRectangleFlatButton:
+                                    id:c24
+                                    text:""
+                                    size_hint_y:.8
+                                    size_hint_x:.1
+                                    pos_hint:{"x":.4,"center_y":.7}
+                                    line_color:204/255,229/255,1,1
+                                    disabled:True
+                                    on_release:app.c24return()
+
+                                MDRectangleFlatButton:
+                                    id:c34
+                                    text:""
+                                    size_hint_x:.1
+                                    size_hint_y:.8
+                                    pos_hint:{"x":.4,"center_y":.7}
+                                    line_color:204/255,229/255,1,1
+                                    disabled:True
+                                    on_release:app.c34return()
+
+                                MDRectangleFlatButton:
+                                    id:c44
+                                    text:""
+                                    size_hint_x:.1
+                                    size_hint_y:.8
+                                    pos_hint:{"x":.4,"center_y":.7}
+                                    line_color:204/255,229/255,1,1
+                                    disabled:True
+                                    on_release:app.c44return()
+
+                                MDRectangleFlatButton:
+                                    id:c54
+                                    text:""
+                                    size_hint_x:.1
+                                    size_hint_y:.8
+                                    pos_hint:{"x":.4,"center_y":.7}
+                                    line_color:204/255,229/255,1,1
+                                    disabled:True
+                                    on_release:app.c54return()
+                        BoxLayout:
+                            orientation:"vertical"
+                            canvas:
+                                Color:
+                                    rgba: 204/255,229/255,1,1
+                                Rectangle:
+                                    pos: self.pos
+                                    size: self.size
+                            BoxLayout:
+                                Label:
+                                    id:num5
+                                    text:""
+                                    font_size:dp(30)
+                                    theme_text_color: "Custom"
+                                    size_hint_x:None
+                                    size_hint_y:.2
+                                    pos_hint:{"center_x":.1,"center_y":.67}
+                                    color:1,1,1,1
+
+                                Label:
+                                    id:tname5
+                                    text:""
+                                    font_size:dp(44)
+                                    size_hint_x:None
+                                    size_hint_y:.28
+                                    halign: "left"
+                                    pos_hint:{"center_x":.1,"center_y":.7}
+                                Label:
+                                    id:durlab5
+                                    text:""
+                                MDRaisedButton:
+                                    id:submitt5
+                                    text:"SUBMIT"
+                                    size_hint_y:.5
+                                    pos_hint:{"center_x":.6,"center_y":.67}
+                                    disabled:True
+                                    on_release:app.show_alert_dialog()
+
+                            BoxLayout:
+                                orientation:'horizontal'
+                                spacing:80
+                                padding:20
+                                MDRectangleFlatButton:
+                                    id:c15
+                                    text:""
+                                    size_hint_x:.1
+                                    size_hint_y:.8
+                                    pos_hint:{"x":.4,"center_y":.7}
+                                    line_color:204/255,229/255,1,1
+                                    disabled:True
+                                    on_release:app.c15return()
+
+                                MDRectangleFlatButton:
+                                    id:c25
+                                    text:""
+                                    size_hint_y:.8
+                                    size_hint_x:.1
+                                    pos_hint:{"x":.4,"center_y":.7}
+                                    line_color:204/255,229/255,1,1
+                                    disabled:True
+                                    on_release:app.c25return()
+
+                                MDRectangleFlatButton:
+                                    id:c35
+                                    text:""
+                                    size_hint_x:.1
+                                    size_hint_y:.8
+                                    pos_hint:{"x":.4,"center_y":.7}
+                                    line_color:204/255,229/255,1,1
+                                    disabled:True
+                                    on_release:app.c35return()
+
+                                MDRectangleFlatButton:
+                                    id:c45
+                                    text:""
+                                    size_hint_x:.1
+                                    size_hint_y:.8
+                                    pos_hint:{"x":.4,"center_y":.7}
+                                    line_color:204/255,229/255,1,1
+                                    disabled:True
+                                    on_release:app.c45return()
+                                MDRectangleFlatButton:
+                                    id:c55
+                                    text:""
+                                    size_hint_x:.1
+                                    size_hint_y:.8
+                                    pos_hint:{"x":.4,"center_y":.7}
+                                    line_color:204/255,229/255,1,1
+                                    disabled:True
+                                    on_release:app.c55return()
+                        BoxLayout:
+                            orientation:"vertical"
+                            canvas:
+                                Color:
+                                    rgba: 204/255,229/255,1,1
+                                Rectangle:
+                                    pos: self.pos
+                                    size: self.size
+                            BoxLayout:
+
+                                Label:
+                                    id:num6
+                                    text:""
+                                    font_size:dp(30)
+                                    theme_text_color: "Custom"
+                                    size_hint_x:None
+                                    size_hint_y:.2
+                                    pos_hint:{"center_x":.1,"center_y":.67}
+                                    color:1,1,1,1
+
+                                Label:
+                                    id:tname6
+                                    text:""
+                                    font_size:dp(44)
+                                    size_hint_x:None
+                                    size_hint_y:.28
+                                    halign: "left"
+                                    pos_hint:{"center_x":.1,"center_y":.7}
+                                Label:
+                                    id:durlab6
+                                    text:""
+                                MDRaisedButton:
+                                    id:submitt6
+                                    text:"SUBMIT"
+                                    size_hint_y:.5
+                                    pos_hint:{"center_x":.6,"center_y":.67}
+                                    disabled:True
+                                    on_release:app.show_alert_dialog()
+
+                            BoxLayout:
+                                orientation:'horizontal'
+                                spacing:80
+                                padding:20
+                                MDRectangleFlatButton:
+                                    id:c16
+                                    text:""
+                                    size_hint_x:.1
+                                    size_hint_y:.8
+                                    pos_hint:{"x":.4,"center_y":.7}
+                                    line_color:204/255,229/255,1,1
+                                    disabled:True
+                                    on_release:app.c16return()
+                                MDRectangleFlatButton:
+                                    id:c26
+                                    text:""
+                                    size_hint_y:.8
+                                    size_hint_x:.1
+                                    pos_hint:{"x":.4,"center_y":.7}
+                                    line_color:204/255,229/255,1,1
+                                    disabled:True
+                                    on_release:app.c26return()
+                                MDRectangleFlatButton:
+                                    id:c36
+                                    text:""
+                                    size_hint_x:.1
+                                    size_hint_y:.8
+                                    pos_hint:{"x":.4,"center_y":.7}
+                                    line_color:204/255,229/255,1,1
+                                    disabled:True
+                                    on_release:app.c36return()
+                                MDRectangleFlatButton:
+                                    id:c46
+                                    text:""
+                                    size_hint_x:.1
+                                    size_hint_y:.8
+                                    pos_hint:{"x":.4,"center_y":.7}
+                                    line_color:204/255,229/255,1,1
+                                    disabled:True
+                                    on_release:app.c46return()
+                                MDRectangleFlatButton:
+                                    id:c56
+                                    text:""
+                                    size_hint_x:.1
+                                    size_hint_y:.8
+                                    pos_hint:{"x":.4,"center_y":.7}
+                                    line_color:204/255,229/255,1,1
+                                    disabled:True
+                                    on_release:app.c56return()
+                        BoxLayout:
+                            orientation:"vertical"
+                            canvas:
+                                Color:
+                                    rgba: 204/255,229/255,1,1
+                                Rectangle:
+                                    pos: self.pos
+                                    size: self.size
+                            BoxLayout:
+
+                                Label:
+                                    id:num7
+                                    text:""
+                                    font_size:dp(30)
+                                    theme_text_color: "Custom"
+                                    size_hint_x:None
+                                    size_hint_y:.2
+                                    pos_hint:{"center_x":.1,"center_y":.67}
+                                    color:1,1,1,1
+
+                                Label:
+                                    id:tname7
+                                    text:""
+                                    font_size:dp(44)
+                                    size_hint_x:None
+                                    size_hint_y:.28
+                                    halign: "left"
+                                    pos_hint:{"center_x":.1,"center_y":.7}
+                                Label:
+                                    id:durlab7
+                                    text:""
+                                MDRaisedButton:
+                                    id:submitt7
+                                    text:"SUBMIT"
+                                    size_hint_y:.5
+                                    pos_hint:{"center_x":.6,"center_y":.67}
+                                    disabled:True
+                                    on_release:app.show_alert_dialog()
+
+                            BoxLayout:
+                                orientation:'horizontal'
+                                spacing:80
+                                padding:20
+                                MDRectangleFlatButton:
+                                    id:c17
+                                    text:""
+                                    size_hint_x:.1
+                                    size_hint_y:.8
+                                    pos_hint:{"x":.4,"center_y":.7}
+                                    line_color:204/255,229/255,1,1
+                                    disabled:True
+                                    on_release:app.c17return()
+                                MDRectangleFlatButton:
+                                    id:c27
+                                    text:""
+                                    size_hint_y:.8
+                                    size_hint_x:.1
+                                    pos_hint:{"x":.4,"center_y":.7}
+                                    line_color:204/255,229/255,1,1
+                                    disabled:True
+                                    on_release:app.c27return()
+                                MDRectangleFlatButton:
+                                    id:c37
+                                    text:""
+                                    size_hint_x:.1
+                                    size_hint_y:.8
+                                    pos_hint:{"x":.4,"center_y":.7}
+                                    line_color:204/255,229/255,1,1
+                                    disabled:True
+                                    on_release:app.c37return()
+                                MDRectangleFlatButton:
+                                    id:c47
+                                    text:""
+                                    size_hint_x:.1
+                                    size_hint_y:.8
+                                    pos_hint:{"x":.4,"center_y":.7}
+                                    line_color:204/255,229/255,1,1
+                                    disabled:True
+                                    on_release:app.c47return()
+                                MDRectangleFlatButton:
+                                    id:c57
+                                    text:""
+                                    size_hint_x:.1
+                                    size_hint_y:.8
+                                    pos_hint:{"x":.4,"center_y":.7}
+                                    line_color:204/255,229/255,1,1
+                                    disabled:True
+                                    on_release:app.c57return()
+                        BoxLayout:
+                            orientation:"vertical"
+                            canvas:
+                                Color:
+                                    rgba: 204/255,229/255,1,1
+                                Rectangle:
+                                    pos: self.pos
+                                    size: self.size
+                            BoxLayout:
+
+                                Label:
+                                    id:num8
+                                    text:""
+                                    font_size:dp(30)
+                                    theme_text_color: "Custom"
+                                    size_hint_x:None
+                                    size_hint_y:.2
+                                    pos_hint:{"center_x":.1,"center_y":.67}
+                                    color:1,1,1,1
+
+                                Label:
+                                    id:tname8
+                                    text:""
+                                    font_size:dp(44)
+                                    size_hint_x:None
+                                    size_hint_y:.28
+                                    halign: "left"
+                                    pos_hint:{"center_x":.1,"center_y":.7}
+                                Label:
+                                    id:durlab8
+                                    text:""
+                                MDRaisedButton:
+                                    id:submitt8
+                                    text:"SUBMIT"
+                                    size_hint_y:.5
+                                    pos_hint:{"center_x":.6,"center_y":.67}
+                                    disabled:True
+                                    on_release:app.show_alert_dialog()
+
+                            BoxLayout:
+                                orientation:'horizontal'
+                                spacing:80
+                                padding:20
+                                MDRectangleFlatButton:
+                                    id:c18
+                                    text:""
+                                    size_hint_x:.1
+                                    size_hint_y:.8
+                                    pos_hint:{"x":.4,"center_y":.7}
+                                    line_color:204/255,229/255,1,1
+                                    disabled:True
+                                    on_release:app.c18return()
+                                MDRectangleFlatButton:
+                                    id:c28
+                                    text:""
+                                    size_hint_y:.8
+                                    size_hint_x:.1
+                                    pos_hint:{"x":.4,"center_y":.7}
+                                    line_color:204/255,229/255,1,1
+                                    disabled:True
+                                    on_release:app.c28return()
+                                MDRectangleFlatButton:
+                                    id:c38
+                                    text:""
+                                    size_hint_x:.1
+                                    size_hint_y:.8
+                                    pos_hint:{"x":.4,"center_y":.7}
+                                    line_color:204/255,229/255,1,1
+                                    disabled:True
+                                    on_release:app.c38return()
+                                MDRectangleFlatButton:
+                                    id:c48
+                                    text:""
+                                    size_hint_x:.1
+                                    size_hint_y:.8
+                                    pos_hint:{"x":.4,"center_y":.7}
+                                    line_color:204/255,229/255,1,1
+                                    disabled:True
+                                    on_release:app.c48return()
+                                MDRectangleFlatButton:
+                                    id:c58
+                                    text:""
+                                    size_hint_x:.1
+                                    size_hint_y:.8
+                                    pos_hint:{"x":.4,"center_y":.7}
+                                    line_color:204/255,229/255,1,1
+                                    disabled:True
+                                    on_release:app.c58return()
+                        BoxLayout:
+                            orientation:"vertical"
+                            canvas:
+                                Color:
+                                    rgba: 204/255,229/255,1,1
+                                Rectangle:
+                                    pos: self.pos
+                                    size: self.size
+                            BoxLayout:
+
+                                Label:
+                                    id:num9
+                                    text:""
+                                    font_size:dp(30)
+                                    theme_text_color: "Custom"
+                                    size_hint_x:None
+                                    size_hint_y:.2
+                                    pos_hint:{"center_x":.1,"center_y":.67}
+                                    color:1,1,1,1
+
+                                Label:
+                                    id:tname9
+                                    text:""
+                                    font_size:dp(44)
+                                    size_hint_x:None
+                                    size_hint_y:.28
+                                    halign: "left"
+                                    pos_hint:{"center_x":.1,"center_y":.7}
+                                Label:
+                                    id:durlab9
+                                    text:""
+                                MDRaisedButton:
+                                    id:submitt9
+                                    text:"SUBMIT"
+                                    size_hint_y:.5
+                                    pos_hint:{"center_x":.6,"center_y":.67}
+                                    disabled:True
+                                    on_release:app.show_alert_dialog()
+
+                            BoxLayout:
+                                orientation:'horizontal'
+                                spacing:80
+                                padding:20
+                                MDRectangleFlatButton:
+                                    id:c19
+                                    text:""
+                                    size_hint_x:.1
+                                    size_hint_y:.8
+                                    pos_hint:{"x":.4,"center_y":.7}
+                                    line_color:204/255,229/255,1,1
+                                    disabled:True
+                                    on_release:app.c19return()
+                                MDRectangleFlatButton:
+                                    id:c29
+                                    text:""
+                                    size_hint_y:.8
+                                    size_hint_x:.1
+                                    pos_hint:{"x":.4,"center_y":.7}
+                                    line_color:204/255,229/255,1,1
+                                    disabled:True
+                                    on_release:app.c29return()
+                                MDRectangleFlatButton:
+                                    id:c39
+                                    text:""
+                                    size_hint_x:.1
+                                    size_hint_y:.8
+                                    pos_hint:{"x":.4,"center_y":.7}
+                                    line_color:204/255,229/255,1,1
+                                    disabled:True
+                                    on_release:app.c39return()
+                                MDRectangleFlatButton:
+                                    id:c49
+                                    text:""
+                                    size_hint_x:.1
+                                    size_hint_y:.8
+                                    pos_hint:{"x":.4,"center_y":.7}
+                                    line_color:204/255,229/255,1,1
+                                    disabled:True
+                                    on_release:app.c49return()
+                                MDRectangleFlatButton:
+                                    id:c59
+                                    text:""
+                                    size_hint_x:.1
+                                    size_hint_y:.8
+                                    pos_hint:{"x":.4,"center_y":.7}
+                                    line_color:204/255,229/255,1,1
+                                    disabled:True
+                                    on_release:app.c59return()
+                        BoxLayout:
+                            orientation:"vertical"
+                            canvas:
+                                Color:
+                                    rgba: 204/255,229/255,1,1
+                                Rectangle:
+                                    pos: self.pos
+                                    size: self.size
+                            BoxLayout:
+
+                                Label:
+                                    id:num10
+                                    text:""
+                                    font_size:dp(30)
+                                    theme_text_color: "Custom"
+                                    size_hint_x:None
+                                    size_hint_y:.2
+                                    pos_hint:{"center_x":.1,"center_y":.67}
+                                    color:1,1,1,1
+
+                                Label:
+                                    id:tname10
+                                    text:""
+                                    font_size:dp(44)
+                                    size_hint_x:None
+                                    size_hint_y:.28
+                                    halign: "left"
+                                    pos_hint:{"center_x":.1,"center_y":.7}
+                                Label:
+                                    id:durlab10
+                                    text:""
+                                MDRaisedButton:
+                                    id:submitt10
+                                    text:"SUBMIT"
+                                    size_hint_y:.5
+                                    pos_hint:{"center_x":.6,"center_y":.67}
+                                    disabled:True
+                                    on_release:app.show_alert_dialog()
+
+                            BoxLayout:
+                                orientation:'horizontal'
+                                spacing:80
+                                padding:20
+                                MDRectangleFlatButton:
+                                    id:c110
+                                    text:""
+                                    size_hint_x:.1
+                                    size_hint_y:.8
+                                    pos_hint:{"x":.4,"center_y":.7}
+                                    line_color:204/255,229/255,1,1
+                                    disabled:True
+                                    on_release:app.c110return()
+                                MDRectangleFlatButton:
+                                    id:c210
+                                    text:""
+                                    size_hint_y:.8
+                                    size_hint_x:.1
+                                    pos_hint:{"x":.4,"center_y":.7}
+                                    line_color:204/255,229/255,1,1
+                                    disabled:True
+                                    on_release:app.c210return()
+                                MDRectangleFlatButton:
+                                    id:c310
+                                    text:""
+                                    size_hint_x:.1
+                                    size_hint_y:.8
+                                    pos_hint:{"x":.4,"center_y":.7}
+                                    line_color:204/255,229/255,1,1
+                                    disabled:True
+                                    on_release:app.c310return()
+                                MDRectangleFlatButton:
+                                    id:c410
+                                    text:""
+                                    size_hint_x:.1
+                                    size_hint_y:.8
+                                    pos_hint:{"x":.4,"center_y":.7}
+                                    line_color:204/255,229/255,1,1
+                                    disabled:True
+                                    on_release:app.c410return()
+                                MDRectangleFlatButton:
+                                    id:c510
+                                    text:""
+                                    size_hint_x:.1
+                                    size_hint_y:.8
+                                    pos_hint:{"x":.4,"center_y":.7}
+                                    line_color:204/255,229/255,1,1
+                                    disabled:True
+                                    on_release:app.c510return()
+        MDScreen:
+            name:"MF"
+            MDBoxLayout:
+                orientation:"vertical"
+                MDTopAppBar:
+                    title:"Settings"
+                MDBoxLayout:
+                    size_hint:(1,.1)
+                    MDIconButton:
+                        icon:"keyboard-backspace"
+                        on_release:
+                            root.screen_manager.current='main'
+                ScrollView:
+                    size:self.size
+                    GridLayout:
+                        id:layout_content
+                        size_hint_y:None
+                        height:self.minimum_height
+                        width:self.minimum_width
+                        cols:1
+                        row_default_height:"60dp"
+                        row_force_default:True
+                        MDRectangleFlatButton:
+                            id:a
+                            text:""
+                            size_hint_x:1
+                            halign: "left"
+                            size_hint_y:"60dp"
+                            on_release:
+                                app.to1()
+                                root.screen_manager.current='main'
+                        MDRectangleFlatButton:
+                            id:b
+                            text:""
+                            size_hint_x:1
+                            halign: "left"
+                            size_hint_y:"60dp"
+                            on_release:
+                                app.to2()
+                                root.screen_manager.current='main'
+                        MDRectangleFlatButton:
+                            id:c
+                            text:""
+                            size_hint_x:1
+                            halign: "left"
+                            size_hint_y:"60dp"
+                            on_release:
+                                app.to3()
+                                root.screen_manager.current='main'
+                        MDRectangleFlatButton:
+                            id:d
+                            text:""
+                            size_hint_x:1
+                            halign: "left"
+                            size_hint_y:"60dp"
+                            on_release:
+                                app.to4()
+                                root.screen_manager.current='main'
+                        MDRectangleFlatButton:
+                            id:anan
+                            text:""
+                            size_hint_x:1
+                            halign: "left"
+                            size_hint_y:"60dp"
+                        MDRectangleFlatButton:
+                            id:anan
+                            text:""
+                            size_hint_x:1
+                            halign: "left"
+                            size_hint_y:"60dp"
+                        MDRectangleFlatButton:
+                            id:anan
+                            text:""
+                            size_hint_x:1
+                            halign: "left"
+                            size_hint_y:"60dp"
+
+        MDScreen:
+            name:"booking"
+            MDBoxLayout:
+                orientation:"vertical"
+                MDTopAppBar:
+                    title:"Settings"
+                MDBoxLayout:
+                    size_hint:(1,.1)
+                    MDIconButton:
+                        icon:"keyboard-backspace"
+                        on_release:
+                            root.screen_manager.current='main'
+                ScrollView:
+                    size:self.size
+                    GridLayout:
+                        id:layout_content
+                        size_hint_y:None
+                        height:self.minimum_height
+                        width:self.minimum_width
+                        cols:1
+                        row_default_height:"60dp"
+                        row_force_default:True
+                        padding:30
+                        MDLabel:
+                            text:"Boarding Details"
+                        MDLabel:
+                            id:From_Book
+                            text:""
+                        MDLabel:
+                            text:"Add Traveller"
+                        MDTextField:
+                            id:pname
+                            icon_right:"pencil"
+                            hint_text: "Full name"
+                            max_text_length: 30
+                        MDLabel:
+                            text:"Gender"
+                        MDFillRoundFlatButton:
+                            id:male
+                            text:"Male"
+                            on_release:app.male()
+                        MDFillRoundFlatButton:
+                            id:female
+                            text:"Female"
+                            on_release:app.female()
+                        MDFillRoundFlatButton:
+                            id:other
+                            text:"Other"
+                            on_release:app.other()
+                        MDTextField:
+                            id:p_age
+                            icon_right:"pencil"
+                            hint_text: "Age"
+                            max_text_length: 3
+                        MDLabel:
+                            text:"Contacts Details"
+                        MDLabel:
+                            id:umobile_no
+                            text:""
+                        MDLabel:
+                            id:uEmail
+                            text:""
+                        MDLabel:
+                            id:uaddress
+                            text:""
+                        MDRectangleFlatButton:
+                            text:"Submit"
+                            size_hint_y:.4
+                            size_hint_x:.2
+                            on_release:app.passenger()
+        MDScreen:
+            name:"showticket"
+            MDBoxLayout:
+                orientation:"vertical"
+                MDTopAppBar:
+                    title:"Settings"
+                MDBoxLayout:
+                    size_hint:(1,.1)
+                    MDIconButton:
+                        icon:"keyboard-backspace"
+                        on_release:
+                            root.screen_manager.current='main'
+                MDBoxLayout:
+                    orientation:"vertical"
+                    MDLabel:
+                        id:thankutext
+                        text:"Thank you for reserving in this xyz train we hope to provide the best experiencee below is your ticket details:-"
+                    MDLabel:
+                        id:PNR_no
+                        text:"PNR No: "
+                    MDLabel:
+                        id:train-no-name
+                        text:"Train No/\nTrain Name:"
+                    MDLabel:
+                        id:trans_id
+                        text:"Transaction ID:"
+                    MDLabel:
+                        id:date_book
+                        text:"Date of\nBooking:"
+                    MDLabel:
+                        id:classt
+                        text:"Class:"
+                    MDLabel:
+                        id:date_journey
+                        text:"Date of\nJourney:"
+                    MDLabel:
+                        id:boarding
+                        text:"Boarding at:"
+                    MDLabel:
+                        id:date_b
+                        text:"Date of\nBoarding:"
+                    MDLabel:
+                        id:schedule_depart
+                        text:"Schedule\ndeparture:"
+                    MDLabel:
+                        id:Res_upto
+                        text:"Reservation upto:"
+                    MDLabel:
+                        id:schedule_arrive
+                        text:"Schedule\narrival:"
+                    MDLabel:
+                        id:pn0
+                        text:"Phone number:"
